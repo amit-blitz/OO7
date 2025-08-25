@@ -13,9 +13,9 @@ const client = new OpenAI({
 const getWeatherDetails = (city) => {
   switch (city.toLowerCase()) {
     case "delhi":
-      return "15 degree Celsius";
+      return "25 degree Celsius";
     case "bangalore":
-      return "10 degree Celsius";
+      return "23 degree Celsius";
   }
 };
 
@@ -57,7 +57,7 @@ while (true) {
     type: "user",
     user: query,
   };
-  messages.push({ role: "user", content: `${JSON.stringify(userQuery)}` });
+  messages.push({ role: "user", content: query });
 
   while (true) {
     const chat = await client.chat.completions.create({
